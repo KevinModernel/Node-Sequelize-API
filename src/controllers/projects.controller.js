@@ -3,7 +3,6 @@ import { Task } from '../models/task.js'
 
 export const getProjects = async (req, res) => {
 	try {
-		//throw new Error('query failed');
 		const projects = await Project.findAll();
 		res.json(projects);
 
@@ -35,7 +34,7 @@ export const createProject = async (req, res) => {
 	const {name, priority, description} = req.body;
 
 	try {
-		const newProject = await Project.create({ //newProject: objeto que representa la fila que se ha guardado en la tabla
+		const newProject = await Project.create({
 		name,
 		description,
 		priority
@@ -58,7 +57,7 @@ export const updateProject = async (req, res) => {
 		project.name = name;
 		project.priority = priority;
 		project.description = description;
-		await project.save(); // Con eso actualizas el modelo y la tabla guardada en la DB, sino solo modificabas el objeto project
+		await project.save();
 
 		res.json(project);
 	} catch (error) {

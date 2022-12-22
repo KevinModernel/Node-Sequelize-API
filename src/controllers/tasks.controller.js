@@ -46,7 +46,7 @@ export const updateTask = async (req, res) => {
 			where: { id }
 		});
 
-		task.set(req.body); // Con este metodo si le pasas 1 sola propiedad, actualiza ese campo solo sin alterar el resto.
+		task.set(req.body);
 		await task.save();
 		return res.json(task);
 
